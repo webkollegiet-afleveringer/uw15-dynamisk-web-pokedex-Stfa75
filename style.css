@@ -8,16 +8,25 @@ img {
     width: 100%;
     height: auto;
 }
+
+#wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
 main {
     display: grid;
     /* Laver 4 kolonner der hver fylder 1/4 (1fr) af pladsen */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 10px; /* Luft mellem kortene */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    /* Luft mellem kortene */
     padding: 10px;
     list-style: none;
 }
+
 .pokemon-card {
-    padding: 5px; /* Lidt luft indeni er stadig godt */
+    padding: 5px;
+    /* Lidt luft indeni er stadig godt */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +35,7 @@ main {
 
 /* Nummeret i øverste højre hjørne */
 .poke-id {
-    margin-bottom:10px;
+    margin-bottom: 10px;
     font-weight: bold;
     font-size: 1rem;
     color: black;
@@ -57,10 +66,12 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
 }
-.observer{
+
+.observer {
     background-color: #d41d66;
 }
-main .pokemon-card:nth-last-child(5){
+
+main .pokemon-card:nth-last-child(5) {
     background-color: #d41d66;
 
 }
