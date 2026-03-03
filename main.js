@@ -2,8 +2,8 @@ let currentOffset = 0;
 const limit = 20;
 const artWorkUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 
-function fetchPokemon(offset) {
-    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
+function fetchPokemon() {
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${currentOffset}&limit=${limit}`)
         .then((respons) => respons.json())
         .then((data) => {
             displayPokemon(data);
@@ -19,7 +19,7 @@ function displayPokemon(data) {
         const id = pokeId(url);
         return /*html*/ `
             <div class="pokemon-card">
-                <span class="poke-id">##${id}</span>
+                <span class="poke-id">##${id.padStart(3, "0")}</span>
                 <img src="${artWorkUrl}${id}.png" alt="${name}">
                 <div class="poke-info">
                     <h3>${name}</h3>
