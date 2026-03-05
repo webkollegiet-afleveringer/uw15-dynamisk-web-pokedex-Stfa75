@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+#wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+#detaljer {
+    width: 75%;
+    margin: 0 auto;
+    border-top: 20px;
+
+}
+
+.beast {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.top img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.top h2 {
+    font-size: 3rem;
+    font-family: "Agbalumo", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.billede {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.billede img {
+    width: 50%;
+}
+
+/*****abilities****/
+
+.type-list {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.type-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    /* Teksten er hvid på dem alle */
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: "Agbalumo", system-ui;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+.grass {
+    background-color: #74CB48;
+    /* Grøn */
+}
+
+.poison {
+    background-color: #A43E9E;
+    /* Lilla */
+}
+
+.fire {
+    background-color: #F57D31;
+    /* Orange/Rød */
+}
+
+.water {
+    background-color: #6493EB;
+    /* Blå */
+}
+
+.text1 {
+    text-align: center;
+    font-family: "Agbalumo", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 50px;
+}
+
+.oversigt {
+    width: 80%;
+    margin: 0 auto;
+
+
+}

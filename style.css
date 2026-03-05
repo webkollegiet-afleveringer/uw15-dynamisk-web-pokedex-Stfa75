@@ -26,15 +26,15 @@ main {
 }
 
 .pokemon-card {
-    width: 100%;
-    width: 264px;
-    height: 268px;
+
+    width: 250px;
+    height: 250px;
     padding: 5px;
     /* Lidt luft indeni er stadig godt */
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    background: linear-gradient(white 55%, rgb(233, 231, 231) 45%);
     border-radius: 10px;
     box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -45,7 +45,7 @@ main {
 /* Nummeret i øverste højre hjørne */
 .poke-id {
     margin-bottom: 10px;
-    margin-left: 75px;
+    margin-left: 160px;
     font-weight: bold;
     font-size: 1rem;
     color: black;
@@ -57,7 +57,7 @@ main {
     width: 100px;
     height: auto;
     display: block;
-    margin-bottom: 10px;
+    margin-top: 40px;
 }
 
 /* Tekst og link i bunden */
@@ -68,14 +68,21 @@ main {
 .poke-info h3 {
     text-transform: capitalize;
     margin: 5px 0;
-    color: rgb(160, 158, 158);
+    color: rgb(14, 13, 13);
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
 }
 
 .poke-info a {
     color: #050400;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 .observer {
@@ -91,7 +98,7 @@ main .pokemon-card:nth-last-child(5) {
 .search-bar {
     width: 824px;
     min-height: 108px;
-    background-color: rgb(172, 22, 59);
+    background-color: rgba(220, 10, 45, 1);
     display: flex;
     flex-direction: column;
     gap: 10px;
