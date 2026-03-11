@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+#wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+main { 
+    display: grid;
+    /* Laver 4 kolonner der hver fylder 1/4 (1fr) af pladsen */
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%; 
+    gap: 10px;
+    /* Luft mellem kortene */
+    padding: 10px;
+    list-style: none;
+    margin: 0 auto;
+}
+.pokemon-card {
+    width: 250px;
+    height: 250px;
+    padding: 5px;
+    /* Lidt luft indeni er stadig godt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(white 55%, rgb(233, 231, 231) 45%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 auto;
+}
+
+
+/* Nummeret i øverste højre hjørne */
+.poke-id {
+    margin-bottom: 10px;
+    margin-left: 160px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    opacity: 0.8;
+}
+
+/* Billedet i midten */
+.pokemon-card img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin-top: 40px;
+}
+
+/* Tekst og link i bunden */
+.poke-info {
+    text-align: center;
+}
+
+.poke-info h3 {
+    text-transform: capitalize;
+    margin: 5px 0;
+    color: rgb(14, 13, 13);
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poke-info a {
+    color: #050400;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.observer {
+    background-color: #d41d66;
+}
+
+main .pokemon-card:nth-last-child(5) {
+    background-color: #d41d66;
+
+}
+
+/*****search-bar****/
+.search-bar {
+    width: 824px;
+    min-height: 108px;
+    background-color: rgba(220, 10, 45, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+.overskrift {
+    width: 25%;
+    display: flex;
+    align-self: start;
+    padding-top: 10px;
+
+}
+
+.overskrift img {
+    width: 240px;
+    height: 35px;
+
+}
+
+.overskrift h3 {
+    font-size: 2rem;
+}
+
+.bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.bar input[type=text] {
+    width: 650px;
+    height: 40px;
+    border-radius: 15px;
+    margin-left: 20px;
+
+}
+
+.bar img {
+    width: 40px;
+    height: 40px;
+}
+
+#knap {
+    cursor: pointer;
+    /* Gør at musen bliver til en hånd */
+    transition: transform 0.1s ease;
+}
+
+#knap:active {
+    transform: scale(0.9);
+    /* Giver visuel feedback når du trykker */
+}
