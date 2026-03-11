@@ -4,7 +4,7 @@ console.log("hej med dig");
 
 let baseURL = "https://pokeapi.co/api/v2/pokemon"
 const all = 1350;
-
+const pokemonwrapperDom = document.querySelector("main")
 // Opretter containere med det samme
 // mainD.insertAdjacentHTML("beforeend", `<div id="pokemon-wrapper"><div class="pokemon-inner-wrapper"></div></div>`);
 // const pokemonwrapperDom = document.querySelector("#pokemon-wrapper")
@@ -99,7 +99,7 @@ function searchById(pokemonsArray, id) {
 
 function showPokemon(data) {
 
-    const pokemonwrapperDom = document.querySelector("main")
+    // const pokemonwrapperDom = document.querySelector("main")
     pokemonwrapperDom.innerHTML = "";
 
     const pokemonTemplates = data.map((pokemon) => {
