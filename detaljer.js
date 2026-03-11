@@ -52,14 +52,22 @@ function renderPokemon(data, speciesData) {
     const spd = data.stats[5].base_stat;    // Speed
 
     // Vi tager de første 3 moves og laver til en tekststreng
-    const moves = data.moves.slice(0, 3).map(m => m.move.name).join(", ");/* 0,3 betyder at vi tager den første plads og slutter ved den 2 plads(3 i alt)*/
+    const moves = data.moves.slice(0, 3).map(m => ` <span class="move-item">${m.move.name}</span>
+`).join('');;/* 0,3 betyder at vi tager den første plads og slutter ved den 2 plads(3 i alt)*/
     /*Når man "slicer" (skærer) i et array, det svarer det til at tage en kopi af en bestemt del af din liste, 
     uden at ødelægge den originale liste.* - der slices fordi det er de stats, fra arrayet der skal vises* map deler */
     const types = data.types.map(t => `
     <span class="type-badge ${t.type.name}">${t.type.name}</span>
 `).join('');
 
-
+    const statNames = {
+        'hp': 'HP',
+        'attack': 'ATK',
+        'defense': 'DEF',
+        'special-attack': 'SATK',
+        'special-defense': 'SDEF',
+        'speed': 'SPD'
+    };
 
 
     const pokedexString = /*html*/
@@ -70,9 +78,9 @@ function renderPokemon(data, speciesData) {
  <h2>${name}<h2></div>
 </div>
 <div class="billede">
-            <img src="img/chevron_left.svg" alt="venstre pil">
+            <img src="img/chevron_left.svg" alt="venstre pil" class="pil">
             <img src="${image}" alt="billede af ${name}">
-            <img src="img/chevron_right.svg" alt="venstre pil">
+            <img src="img/chevron_right.svg" alt="højre pil" class="pil">
             </div>
             
      <div class="ability">
@@ -83,32 +91,63 @@ function renderPokemon(data, speciesData) {
 
     <h3 class="text1">about</h3>
 
-            <div class="oversigt">
-            <div class= weight>
+           <div class="stats-row"> 
+           <div class="info-item">
+        <div class="info-top">
             <img src="img/weight.png" alt="en vægt">
-            <h4>${weight} Weight</h4></div>
-            <div class="height">
-            <img src="img/straighten.svg" alt="lineal">
-            <h4>${height} Height</h4></div>
-            <div class="move"><h4>${moves} Moves</h4></div>
-            </div>
+            <h4>${weight / 10} kg</h4> </div>
+        <p>Weight</p>
+    </div>
+
+    <div class="info-item">
+        <div class="info-top">
+            <img src="img/ruler.svg" alt="lineal">
+            <h4>${height / 10} m</h4> </div>
+        <p>Height</p>
+    </div>
+
+    <div class="info-item">
+        <div class="moves-stack">
+            ${moves} </div>
+        <p>Moves</p>
+    </div>
+
+</div>
 
             <div class="art">
             <h3>${flavor}</h3>
             </div>
-            
-            <table>
-            ${data.stats.map(statObj => `
-                <tr>
-                    <th class="stst-navn">${statObj.stat.name}</th>
-                    <td>${statObj.base_stat}</td>
-                    <td>
-                    <div class="bar"><div class="bar-value"></div></div>
-                    </td>
+        <div class="text2">Base Stats</div>
+    <table>
+    ${data.stats.map(statObj => {
+            // 1. Definer dine forkortelser (Ordbogen)
+            const statNames = {
+                'hp': 'HP',
+                'attack': 'ATK',
+                'defense': 'DEF',
+                'special-attack': 'SATK',
+                'special-defense': 'SDEF',
+                'speed': 'SPD'
+            };
 
-                    </tr>
-             `).join('')}                        
-           </table>
+            // 2. Find det korte navn eller brug det originale som fallback
+            const shortName = statNames[statObj.stat.name] || statObj.stat.name;
+
+            // 3. Beregn en farve (valgfrit - her er et simpelt eksempel)
+            const barColor = statObj.base_stat > 50 ? '#4CAF50' : '#FF5252';
+
+            // 4. Returnér HTML-rækken
+            return `
+            <tr>
+                <th class="stat-navn">${shortName}</th>
+                <td class="stat-num">${statObj.base_stat}</td>
+                <td>
+                   <progress id="file" value="${statObj.base_stat}" max="200"> 32% </progress>
+                </td>
+            </tr>
+        `;
+        }).join('')}
+</table>
 
        
 
