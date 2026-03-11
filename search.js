@@ -115,7 +115,7 @@ function showPokemon(data) {
             <figure class="pokemon-card">
                 <span class="pokemon-number">${formatPokemonNumber(pokemonIndex)}</span>
                 <img src="${imgPath}" alt ="${pokemon.name}"/>
-                <figcaption>
+                <figcaption class="detaljekort">
                     <span>${pokemon.name}</span>
                     <a href="detaljer.html?id=${pokemonIndex}" class="pokemon-link">SE MERE</a>
                 </figcaption>
