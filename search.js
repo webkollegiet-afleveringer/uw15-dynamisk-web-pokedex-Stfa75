@@ -8,6 +8,7 @@ const all = 1350;
 // Opretter containere med det samme
 // mainD.insertAdjacentHTML("beforeend", `<div id="pokemon-wrapper"><div class="pokemon-inner-wrapper"></div></div>`);
 // const pokemonwrapperDom = document.querySelector("#pokemon-wrapper")
+let searchMethod = "name";
 let pokemons = []
 
 async function init() {
@@ -29,7 +30,32 @@ async function init() {
     if (searchDom) {
         searchPokemon(searchDom)
     }
+    shiftSearchMethod(searchDom);
 }
+function shiftSearchMethod(searchDom) {
+    const sortButtonDom = document.querySelector("#knap");
+    sortButtonDom.addEventListener("click", () => {
+        searchMethod = searchMethod === "name" ? "id" : "name";
+        console.log(searchMethod);
+
+        shiftSearchIcon(searchMethod, sortButtonDom)
+    }
+    )
+}
+
+function shiftSearchIcon(searchMethod, sortButtonDom) {
+    const inputDom = sortButtonDom.closest("header").querySelector("#search")
+    inputDom.value = "";
+    if (searchMethod === "id") {
+        sortButtonDom = "";
+        sortButtonDom = "img/tag.svg"
+
+    } else {
+        sortButtonDom = "";
+        sortButtonDom = "img/sort-sortButtonDom.svg";
+    }
+}
+
 
 function searchPokemon(searchDom) {
     searchDom.addEventListener("input", (event) => {
@@ -48,14 +74,31 @@ function runSearch(inputValue) { // Modtag værdien her
         showPokemon(pokemons)
         return;
     }
+    let pokemonSearchArray;
+    if (searchMethod === "name") {
+        pokemonSearchArray = searchByName(pokemons, value);
+    } else {
+        pokemonSearchArray = searchById(pokemons, value)
+    }
 
-    let pokemonSearchArray = searchByName(pokemons, value);
     showPokemon(pokemonSearchArray);
+}
+function searchById(pokemonsArray, id) {
+    id = Number(id);
+    let searchResult = pokemonsArray.filter((pokemon) => {
+        let pokemonUrlNumber = Number(getIdFromPokemon(pokemon.url))
+        console.log(`Tjekker URL-nummer: ${pokemonUrlNumber} mod søge-id: ${id}`);
+
+        if (pokemonUrlNumber == 10001) {
+            id += 8975
+        }
+        return pokemonUrlNumber == id
+    });
+    return searchResult
 }
 
 function showPokemon(data) {
-    console.log("Jeg tegner nu " + data.length + " pokemons");
-    console.log("Den første er:", data[0].name);
+
     const pokemonwrapperDom = document.querySelector("main")
     pokemonwrapperDom.innerHTML = "";
 
@@ -78,7 +121,7 @@ function showPokemon(data) {
                 </figcaption>
             </figure>`
     })
-    .join("");
+        .join("");
 
     pokemonwrapperDom.innerHTML = pokemonTemplates;
 }
@@ -101,9 +144,9 @@ function getIdFromPokemon(pokemonUrl) {
 function renderHeader(searchIcon) {
     // 1. Find kassen i din HTML
     const headerDom = document.querySelector(".main-header");
-  
-    
-        const header = /*html*/`
+
+
+    const header = /*html*/`
             <div class="search-bar">
                 <div class="overskrift">
                     <img src="img/pokeball.svg" alt="logo">
@@ -114,7 +157,7 @@ function renderHeader(searchIcon) {
                     <img src="img/Sort-Button.svg" alt="searchfilters" id="knap">
                 </div>
             </div>`;
-        if (headerDom) {
+    if (headerDom) {
         // 3. Sæt indholdet IND i kassen
         headerDom.innerHTML = header;
 
