@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+
+
+}
+
+#detaljer {
+    width: 60%;
+    margin: 0 auto;
+    border-top: 20px;
+
+}
+
+.beast {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.top img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.top h2 {
+    font-size: 3rem;
+
+
+}
+
+.billede {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.billede img {
+    width: 35%;
+}
+
+.pil {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+/*****abilities****/
+
+.type-list {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+
+}
+
+.type-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    /* Teksten er hvid på dem alle */
+    font-weight: bold;
+    text-transform: capitalize;
+
+
+}
+
+.grass {
+    background-color: #74CB48;
+    /* Grøn */
+}
+
+.poison {
+    background-color: #A43E9E;
+    /* Lilla */
+}
+
+.fire {
+    background-color: #F57D31;
+    /* Orange/Rød */
+}
+
+.water {
+    background-color: #6493EB;
+    /* Blå */
+}
+
+.text1 {
+    text-align: center;
+
+}
+
+.oversigt {
+    width: 80%;
+    margin: 0 auto;
+
+
+}
+
+/*****midterdelen***/
+/* 1. Den store container der holder alle tre sektioner */
+.stats-row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    /* Gør alle tre kasser lige høje, så stregerne passer */
+    margin: 20px 0;
+
+}
+
+/* 2. De tre individuelle kasser (Weight, Height, Moves) */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Skubber indholdet til top og bund */
+    flex: 1;
+    /* Sørger for at de deler pladsen 1/3 hver */
+    padding: 5px 10px;
+    /* Lidt luft så de ikke klistrer sammen */
+    min-height: 65px;
+    /* Plads nok til at 3 moves kan stå i højden */
+}
+
+/* 3. Den lille kasse til ikon + tal (kun for Weight & Height) */
+.info-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    /* Mellemrum mellem ikon og tal */
+}
+
+.info-top img {
+    width: 16px;
+    /* Juster størrelsen på dine ikoner her */
+    height: 16px;
+}
+
+/* 4. Skillelinjerne (Borders) - kun på de to første */
+.info-item:not(:last-child) {
+    border-right: 1px solid #E0E0E0;
+}
+
+/* 5. Moves-stakken (Den der drillede med kolonnerne!) */
+.moves-stack {
+    display: flex;
+    flex-direction: column;
+    /* Tvinger moves til at stå under hinanden */
+    align-items: center;
+    gap: 2px;
+}
+
+/* 6. Styling af selve move-teksten */
+.move-item {
+    font-size: 12px;
+    text-transform: capitalize;
+    /* Gør første bogstav stort */
+    line-height: 1.2;
+    color: #212121;
+}
+
+/* 7. Labels i bunden (Ordet "Weight", "Height" og "Moves") */
+.info-item p {
+    font-size: 10px;
+    color: #666;
+    margin: 0;
+    margin-top: 8px;
+}
+
+.art {
+    width: 100%;
+    text-align: start;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+
+}
+
+.stat-navn {
+    width: 75px;
+    /* Nu kan de være smallere fordi navnene er korte */
+    text-align: right;
+    color: #666;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    /* Giver det et lidt mere "teknisk" look */
+    padding-left: 2em;
+    border-right: 1px solid rgb(210, 210, 210);
+    padding-right: 10px;
+}
+
+.stat-num {
+    padding: 0 1em;
+}
+
+.text2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
